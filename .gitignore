@@ -1,0 +1,49 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Generated outputs — pipeline will regenerate them with `make all`.
+# Keep the folders themselves via .gitkeep so the layout is preserved.
+outputs/intermediates/*
+outputs/tables/*
+outputs/figures/*
+outputs/reproducibility_report.html
+!outputs/intermediates/.gitkeep
+!outputs/tables/.gitkeep
+!outputs/figures/.gitkeep
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# pytest / coverage / mypy
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+
+# Local node_modules (used only at paper-build time, not required at runtime)
+node_modules/

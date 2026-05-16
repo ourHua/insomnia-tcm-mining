@@ -1,0 +1,66 @@
+name: reproducibility
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: System dependencies (igraph build tools, CJK fonts for figures)
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y --no-install-recommends \
+            build-essential cmake pkg-config \
+            libigraph-dev fonts-noto-cjk
+
+      - name: Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run the full reproducible pipeline
+        run: make all
+
+      - name: Assert reproducibility report passed
+        run: |
+          python - <<'PY'
+          import json, sys, pathlib
+          report = pathlib.Path("outputs/intermediates/assertions_passed.json")
+          data = json.loads(report.read_text())
+          failed = [c for c in data["checks"] if not c["pass"]]
+          if failed:
+              print("Failed assertions:")
+              for c in failed:
+                  print(" -", c["check"], "expected", c["expected"], "got", c["actual"])
+              sys.exit(1)
+          print("All", len(data["checks"]), "assertions PASSED.")
+          PY
+
+      - name: Upload reproduced artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-outputs
+          path: |
+            outputs/intermediates/
+            outputs/tables/
+            outputs/figures/
+            outputs/reproducibility_report.html
+          if-no-files-found: warn
+          retention-days: 30

@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, data or the accompanying manuscript, please cite
+  this repository together with the journal article once it is published.
+title: >-
+  Insomnia TCM Mining — Reproducible Experiment Package for Apriori
+  Association Rule and Complex Network Analysis of Insomnia Traditional
+  Chinese Medicine Prescriptions
+type: software
+authors:
+  - given-names: Junhua
+    family-names: Li
+    email: junhua.li@example.org
+  - given-names: Gilja
+    family-names: So
+    email: gilja.so@example.org
+version: 1.0.0
+date-released: "2026-05-16"
+license: MIT
+repository-code: "https://github.com/<your-github-user>/insomnia-tcm-mining"
+abstract: >-
+  An end-to-end, single-command reproducible pipeline (eleven Python
+  scripts, a Makefile and a docx-js paper builder) that derives all the
+  numerical results, eight figures and eight tables of the accompanying
+  manuscript from two minimum-necessary CSV inputs containing only the
+  fields prescription_id and herb. The package is intended to allow any
+  third party to independently verify the reported numbers via a single
+  `make all` command.
+keywords:
+  - traditional Chinese medicine
+  - insomnia
+  - data mining
+  - Apriori
+  - association rules
+  - complex network analysis
+  - Louvain community detection
+  - reproducible research
