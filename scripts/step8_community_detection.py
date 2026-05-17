@@ -150,7 +150,7 @@ def main() -> None:
     ax.set_xticklabels(pair_names)
     ax.set_ylim(0, 1.05)
     ax.set_ylabel("Agreement score")
-    ax.set_title("Figure 8. Community detection consistency (ARI & NMI)", fontsize=12)
+    ax.set_title("Figure 8. Pairwise consistency (ARI and NMI) of three community detection algorithms", fontsize=12)
     for i, (a_, n_) in enumerate(zip(ari_vals, nmi_vals)):
         ax.text(i - w/2, a_ + 0.02, f"{a_:.2f}", ha="center", fontsize=9)
         ax.text(i + w/2, n_ + 0.02, f"{n_:.2f}", ha="center", fontsize=9)

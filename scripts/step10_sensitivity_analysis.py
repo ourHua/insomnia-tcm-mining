@@ -186,7 +186,7 @@ def main() -> None:
                     label=f"conf={conf}, lift>{lift}")
     ax.set_xlabel("min_support", fontsize=11)
     ax.set_ylabel("# binary rules", fontsize=11)
-    ax.set_title("Figure 7. Apriori parameter sensitivity (27-point grid)", fontsize=12)
+    ax.set_title("Figure 7. Apriori parameter sensitivity over the 27-point grid", fontsize=12)
     ax.grid(alpha=0.3)
     ax.legend(fontsize=7, ncol=3, loc="upper right")
     plt.tight_layout()

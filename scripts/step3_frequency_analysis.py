@@ -24,6 +24,7 @@ for d in (TBL_DIR, FIG_DIR):
 
 # Try to use a CJK-capable font so Chinese herb labels render.
 from _plot_setup import configure_cjk_font
+from herb_i18n import pinyin_list
 configure_cjk_font()
 
 
@@ -52,9 +53,9 @@ def main() -> None:
     bar_colors = ["#E08B3C" if i < 10 else "#9CA8B5" for i in range(len(top30))]
     ax1.bar(range(len(top30)), top30["frequency"], color=bar_colors, edgecolor="black", linewidth=0.4)
     ax1.set_xticks(range(len(top30)))
-    ax1.set_xticklabels(top30["herb"], rotation=45, ha="right", fontsize=9)
+    ax1.set_xticklabels(pinyin_list(top30["herb"]), rotation=45, ha="right", fontsize=9)
     ax1.set_ylabel("Frequency", fontsize=11)
-    ax1.set_xlabel("Herb (Top 30)", fontsize=11)
+    ax1.set_xlabel("Herb (Top 30, Pinyin)", fontsize=11)
 
     ax2 = ax1.twinx()
     ax2.plot(range(len(top30)), top30["cum_pct_of_total_usage"],
@@ -63,7 +64,7 @@ def main() -> None:
     ax2.set_ylabel("Cumulative share of total herb usage (%)", fontsize=11)
     ax2.set_ylim(0, 100)
 
-    plt.title("Figure 2. Pareto distribution of Top 30 high-frequency herbs", fontsize=12)
+    plt.title("Figure 2. Pareto distribution of the 30 most frequent herbs", fontsize=12)
     plt.tight_layout()
     plt.savefig(FIG_DIR / "figure2_pareto_top30.png", dpi=300, bbox_inches="tight")
     plt.savefig(FIG_DIR / "figure2_pareto_top30.pdf", bbox_inches="tight")

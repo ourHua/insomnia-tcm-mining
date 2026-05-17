@@ -32,6 +32,7 @@ INT_DIR.mkdir(parents=True, exist_ok=True)
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 
 from _plot_setup import configure_cjk_font
+from herb_i18n import pinyin
 CJK_FONT = configure_cjk_font()
 
 
@@ -101,8 +102,10 @@ def main() -> None:
     nx.draw_networkx_edges(H_filtered, pos, width=edge_w, alpha=0.45, edge_color="#888")
     nx.draw_networkx_nodes(H_filtered, pos, node_size=sizes, node_color="#4f8fc0",
                             edgecolors="black", linewidths=0.6, alpha=0.9)
-    nx.draw_networkx_labels(H_filtered, pos, font_size=10, font_family=CJK_FONT)
-    plt.title("Figure 4. Core co-occurrence network (Top 30 herbs, Lift ≥ 1.05)", fontsize=12)
+    label_map = {n: pinyin(n) for n in H_filtered.nodes()}
+    nx.draw_networkx_labels(H_filtered, pos, labels=label_map,
+                            font_size=10, font_family=CJK_FONT)
+    plt.title("Figure 4. Core co-occurrence network of the 30 most frequent herbs (edges with Lift ≥ 1.05)", fontsize=12)
     plt.axis("off")
     plt.tight_layout()
     plt.savefig(FIG_DIR / "figure4_core_network.png", dpi=300, bbox_inches="tight")

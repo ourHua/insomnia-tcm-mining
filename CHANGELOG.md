@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-05-17
+
+### Added
+- Anglicised, SCI-style version of the manuscript
+  (`paper/Insomnia_TCM_Mining_Manuscript_EN.docx`), polished for
+  submission to MDPI Applied Sciences and built from
+  `paper/build_paper_en.js`.
+- New i18n module `scripts/herb_i18n.py` mapping every Chinese
+  herb name to its Pinyin transliteration and to the standardised
+  Latin pharmacognostic name (Glycyrrhizae Radix et Rhizoma,
+  Ziziphi Spinosae Semen, Albiziae Cortex, Polygoni Multiflori
+  Caulis, Os Draconis, Ostreae Concha, …).
+- English-labelled figures: all eight figures now use Pinyin
+  axis / node labels and SCI-style English titles and captions.
+
+### Verified
+- 16 / 16 headline-number assertions still PASS after refactor.
+- Apriori produces 34 binary rules at the baseline triple
+  constraint; the four flagship Lift ≥ 1.40 pairs are recovered
+  in every cell of the 27-point grid; the network metrics
+  (317 nodes, 11,239 edges, mean clustering 0.83, diameter 3)
+  are unchanged.
+
 ## [1.0.0] - 2026-05-16
 
 ### Added

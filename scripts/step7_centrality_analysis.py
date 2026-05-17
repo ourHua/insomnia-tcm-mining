@@ -26,6 +26,7 @@ for d in (TBL_DIR, FIG_DIR):
     d.mkdir(parents=True, exist_ok=True)
 
 from _plot_setup import configure_cjk_font
+from herb_i18n import pinyin_list
 configure_cjk_font()
 
 
@@ -76,9 +77,9 @@ def main() -> None:
     ax.bar(x,         bc_scaled, width, label="BC × 30", color="#e07b5b", edgecolor="black", linewidth=0.4)
     ax.bar(x + width, sub["CC"], width, label="CC", color="#7aae6b", edgecolor="black", linewidth=0.4)
     ax.set_xticks(x)
-    ax.set_xticklabels(top10_freq, rotation=30, ha="right", fontsize=10)
+    ax.set_xticklabels(pinyin_list(top10_freq), rotation=30, ha="right", fontsize=10)
     ax.set_ylabel("Centrality value", fontsize=11)
-    ax.set_title("Figure 5. Centrality comparison for Top 10 high-frequency herbs", fontsize=12)
+    ax.set_title("Figure 5. Degree, betweenness and closeness centrality for the 10 most frequent herbs", fontsize=12)
     ax.legend(loc="upper right")
     ax.grid(axis="y", alpha=0.3)
     plt.tight_layout()

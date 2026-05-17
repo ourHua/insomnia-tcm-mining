@@ -23,6 +23,7 @@ FIG_DIR = ROOT / "outputs" / "figures"
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 
 from _plot_setup import configure_cjk_font
+from herb_i18n import pinyin_list
 configure_cjk_font()
 
 
@@ -50,8 +51,8 @@ def main() -> None:
     plt.colorbar(im, ax=ax, fraction=0.046, pad=0.04, label="Lift")
     ax.set_xticks(range(15))
     ax.set_yticks(range(15))
-    ax.set_xticklabels(top15, rotation=45, ha="right", fontsize=9)
-    ax.set_yticklabels(top15, fontsize=9)
+    ax.set_xticklabels(pinyin_list(top15), rotation=45, ha="right", fontsize=9)
+    ax.set_yticklabels(pinyin_list(top15), fontsize=9)
     # annotate values & highlight Lift >= 1.40
     for i in range(15):
         for j in range(15):
@@ -64,7 +65,7 @@ def main() -> None:
                     rect = mpatches.Rectangle((j-0.5, i-0.5), 1, 1,
                                               fill=False, edgecolor="black", linewidth=1.4)
                     ax.add_patch(rect)
-    ax.set_title("Figure 6. Top 15 pairwise Lift heatmap (Lift ≥ 1.40 outlined)", fontsize=12)
+    ax.set_title("Figure 6. Pairwise Lift heatmap for the 15 most frequent herbs (Lift ≥ 1.40 outlined)", fontsize=12)
     plt.tight_layout()
     plt.savefig(FIG_DIR / "figure6_lift_heatmap.png", dpi=300, bbox_inches="tight")
     plt.savefig(FIG_DIR / "figure6_lift_heatmap.pdf", bbox_inches="tight")

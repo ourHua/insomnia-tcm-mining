@@ -31,6 +31,7 @@ for d in (INT_DIR, TBL_DIR, FIG_DIR):
     d.mkdir(parents=True, exist_ok=True)
 
 from _plot_setup import configure_cjk_font
+from herb_i18n import pinyin
 configure_cjk_font()
 
 MIN_SUPPORT = 0.20
@@ -97,13 +98,13 @@ def main() -> None:
     for _, r in binary.iterrows():
         if r["lift"] >= 1.40:
             ax.annotate(
-                f"{r['LHS']}→{r['RHS']}\nLift={r['lift']:.2f}",
+                f"{pinyin(r['LHS'])} → {pinyin(r['RHS'])}\nLift={r['lift']:.2f}",
                 (r["support_pct"], r["confidence_pct"]),
                 xytext=(6, 6), textcoords="offset points", fontsize=8,
             )
     ax.set_xlabel("Support (%)", fontsize=11)
     ax.set_ylabel("Confidence (%)", fontsize=11)
-    ax.set_title("Figure 3. Apriori binary rules: support–confidence–lift", fontsize=12)
+    ax.set_title("Figure 3. Apriori binary association rules in the support–confidence–lift space", fontsize=12)
     ax.grid(alpha=0.3)
     plt.tight_layout()
     plt.savefig(FIG_DIR / "figure3_apriori_bubble.png", dpi=300, bbox_inches="tight")
