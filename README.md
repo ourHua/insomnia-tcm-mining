@@ -2,7 +2,6 @@
 
 [![CI: reproducibility](https://github.com/lijunhua/insomnia-tcm-mining/actions/workflows/ci.yml/badge.svg)](https://github.com/lijunhua/insomnia-tcm-mining/actions/workflows/ci.yml)
 [![Reproducible](https://img.shields.io/badge/reproducible-make%20all-green.svg)](#tldr--one-command-reproduction)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20250578.svg)](https://doi.org/10.5281/zenodo.20250578)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Data: CC--BY--4.0](https://img.shields.io/badge/data-CC--BY--4.0-orange.svg)](LICENSE)
 
@@ -122,8 +121,9 @@ The `CITATION.cff` file in the project root provides the canonical
 citation block; GitHub renders an APA/BibTeX preview from it via the
 "Cite this repository" button in the sidebar.
 
-A permanent archive of the code is deposited on Zenodo and carries the
-DOI **[10.5281/zenodo.20250578](https://doi.org/10.5281/zenodo.20250578)**.
+A permanent Zenodo archive will be minted from the next tagged release;
+the DOI will be added to this README and to `CITATION.cff` once it is
+available.
 
 ## License
 

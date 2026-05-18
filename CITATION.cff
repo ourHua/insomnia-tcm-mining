@@ -14,10 +14,6 @@ version: 1.3.0
 date-released: "2026-05-17"
 license: MIT
 repository-code: "https://github.com/lijunhua/insomnia-tcm-mining"
-identifiers:
-  - type: doi
-    value: "10.5281/zenodo.20250578"
-    description: "Permanent Zenodo archive (concept DOI)"
 abstract: >-
   An end-to-end, single-command reproducible pipeline of eleven Python
   scripts, a Makefile and a continuous-integration workflow. Starting
