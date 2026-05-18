@@ -5,13 +5,36 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-05-17
+
+### Removed
+- The `paper/` directory has been removed from the repository.
+  The manuscript drafts and the docx-generation scripts now live
+  outside this codebase. This repository is now focused exclusively
+  on the reproducible analysis pipeline — code, data, environment
+  specifications, and continuous integration. The manuscript will be
+  distributed separately via the publisher and Zenodo.
+
+### Unchanged
+- The eleven analysis scripts, the two input CSVs, the Makefile,
+  the conda environment, the GitHub Actions workflow and the
+  16 / 16 headline-number assertions are preserved verbatim.
+  `make all` regenerates every numerical result, table and figure.
+
+## [1.2.0] - 2026-05-17
+
+### Added
+- Manuscript build conformant to the MDPI Applied Sciences
+  template (`applsci-template.dot`) — Palatino Linotype 12 pt,
+  three-line tables, line numbers, MDPI back-matter blocks,
+  native `MDPI_*` style names throughout.
+
 ## [1.1.0] - 2026-05-17
 
 ### Added
-- Anglicised, SCI-style version of the manuscript
-  (`paper/Insomnia_TCM_Mining_Manuscript_EN.docx`), polished for
-  submission to MDPI Applied Sciences and built from
-  `paper/build_paper_en.js`.
+- English SCI-style version of the manuscript, polished for
+  submission to MDPI Applied Sciences (delivered separately from
+  this repository).
 - New i18n module `scripts/herb_i18n.py` mapping every Chinese
   herb name to its Pinyin transliteration and to the standardised
   Latin pharmacognostic name (Glycyrrhizae Radix et Rhizoma,
@@ -60,4 +83,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   all 27 parameter combinations.
 - Bootstrap robustness (B = 200): Top-10 membership match rate 100 %.
 
-[1.0.0]: https://github.com/<your-github-user>/insomnia-tcm-mining/releases/tag/v1.0.0
+[1.0.0]: https://github.com/lijunhua/insomnia-tcm-mining/releases/tag/v1.0.0

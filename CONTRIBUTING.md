@@ -9,7 +9,7 @@ performance optimizations, and methodological extensions.
 ## Quick start
 
 ```bash
-git clone https://github.com/<your-github-user>/insomnia-tcm-mining.git
+git clone https://github.com/lijunhua/insomnia-tcm-mining.git
 cd insomnia-tcm-mining
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt

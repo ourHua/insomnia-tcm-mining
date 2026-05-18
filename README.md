@@ -1,12 +1,12 @@
 # Insomnia TCM Mining — Reproducible Experiment Package
 
-[![CI: reproducibility](https://github.com/REPLACE-WITH-YOUR-USER/insomnia-tcm-mining/actions/workflows/ci.yml/badge.svg)](https://github.com/REPLACE-WITH-YOUR-USER/insomnia-tcm-mining/actions/workflows/ci.yml)
+[![CI: reproducibility](https://github.com/lijunhua/insomnia-tcm-mining/actions/workflows/ci.yml/badge.svg)](https://github.com/lijunhua/insomnia-tcm-mining/actions/workflows/ci.yml)
 [![Reproducible](https://img.shields.io/badge/reproducible-make%20all-green.svg)](#tldr--one-command-reproduction)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20250578.svg)](https://doi.org/10.5281/zenodo.20250578)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Data: CC--BY--4.0](https://img.shields.io/badge/data-CC--BY--4.0-orange.svg)](LICENSE)
 
-This repository contains the **complete, end-to-end reproducible pipeline**
-that supports the manuscript:
+This repository holds the analysis pipeline behind the manuscript:
 
 > *基于 Apriori 关联规则与复杂网络分析的失眠中医方剂配伍规律研究*
 > (Association Rule Mining and Complex Network Analysis of Insomnia
@@ -56,8 +56,6 @@ insomnia-tcm-mining/
 │   ├── tables/                                     # 6 manuscript tables (CSV)
 │   ├── figures/                                    # 8 manuscript figures (PNG + PDF)
 │   └── reproducibility_report.html                 # auto-generated audit page
-├── paper/
-│   └── Insomnia_TCM_Mining_Manuscript_VersionA.docx
 ├── Makefile
 ├── requirements.txt
 ├── environment.yml
@@ -119,9 +117,13 @@ two-field transactional dataset).
 
 ## Citation
 
-If you use this code or data, please cite the accompanying manuscript
-and this repository. A `CITATION.cff` will be added upon manuscript
-acceptance, together with a Zenodo DOI.
+If you use this code or data in academic work, please cite this repository.
+The `CITATION.cff` file in the project root provides the canonical
+citation block; GitHub renders an APA/BibTeX preview from it via the
+"Cite this repository" button in the sidebar.
+
+A permanent archive of the code is deposited on Zenodo and carries the
+DOI **[10.5281/zenodo.20250578](https://doi.org/10.5281/zenodo.20250578)**.
 
 ## License
 

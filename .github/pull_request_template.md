@@ -23,7 +23,7 @@
 
 - [ ] `README.md` updated where relevant.
 - [ ] New dependency added to both `requirements.txt` and `environment.yml`.
-- [ ] Manuscript (`paper/`) impacts noted in PR description, if any.
+- [ ] Manuscript impacts noted in the PR description, if any (the manuscript itself lives outside this repository).
 
 **Related issues**
 

@@ -1,7 +1,6 @@
 cff-version: 1.2.0
 message: >-
-  If you use this software, data or the accompanying manuscript, please cite
-  this repository together with the journal article once it is published.
+  If you use this software or data, please cite this repository.
 title: >-
   Insomnia TCM Mining — Reproducible Experiment Package for Apriori
   Association Rule and Complex Network Analysis of Insomnia Traditional
@@ -10,22 +9,23 @@ type: software
 authors:
   - given-names: Junhua
     family-names: Li
-    email: junhua.li@example.org
-  - given-names: Gilja
-    family-names: So
-    email: gilja.so@example.org
-version: 1.0.0
-date-released: "2026-05-16"
+    alias: lijunhua
+version: 1.3.0
+date-released: "2026-05-17"
 license: MIT
-repository-code: "https://github.com/<your-github-user>/insomnia-tcm-mining"
+repository-code: "https://github.com/lijunhua/insomnia-tcm-mining"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.20250578"
+    description: "Permanent Zenodo archive (concept DOI)"
 abstract: >-
-  An end-to-end, single-command reproducible pipeline (eleven Python
-  scripts, a Makefile and a docx-js paper builder) that derives all the
-  numerical results, eight figures and eight tables of the accompanying
-  manuscript from two minimum-necessary CSV inputs containing only the
-  fields prescription_id and herb. The package is intended to allow any
-  third party to independently verify the reported numbers via a single
-  `make all` command.
+  An end-to-end, single-command reproducible pipeline of eleven Python
+  scripts, a Makefile and a continuous-integration workflow. Starting
+  from two minimum-necessary CSV inputs containing only the fields
+  prescription_id and herb, the pipeline regenerates every numerical
+  result, eight figures and six tables. A third party can therefore
+  independently verify the reported numbers with a single `make all`
+  command.
 keywords:
   - traditional Chinese medicine
   - insomnia
@@ -34,4 +34,5 @@ keywords:
   - association rules
   - complex network analysis
   - Louvain community detection
+  - Leiden community detection
   - reproducible research
