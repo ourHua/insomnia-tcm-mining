@@ -1,6 +1,6 @@
 # Insomnia TCM Mining — Reproducible Experiment Package
 
-[![CI: reproducibility](https://github.com/lijunhua/insomnia-tcm-mining/actions/workflows/ci.yml/badge.svg)](https://github.com/lijunhua/insomnia-tcm-mining/actions/workflows/ci.yml)
+[![CI: reproducibility](https://github.com/ourHua/insomnia-tcm-mining/actions/workflows/ci.yml/badge.svg)](https://github.com/ourHua/insomnia-tcm-mining/actions/workflows/ci.yml)
 [![Reproducible](https://img.shields.io/badge/reproducible-make%20all-green.svg)](#tldr--one-command-reproduction)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20267587.svg)](https://doi.org/10.5281/zenodo.20267587)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)

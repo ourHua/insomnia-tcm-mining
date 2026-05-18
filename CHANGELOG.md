@@ -83,4 +83,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   all 27 parameter combinations.
 - Bootstrap robustness (B = 200): Top-10 membership match rate 100 %.
 
-[1.0.0]: https://github.com/lijunhua/insomnia-tcm-mining/releases/tag/v1.0.0
+[1.0.0]: https://github.com/ourHua/insomnia-tcm-mining/releases/tag/v1.0.0

@@ -13,12 +13,11 @@ authors:
 version: 1.3.0
 date-released: "2026-05-17"
 license: MIT
-repository-code: "https://github.com/lijunhua/insomnia-tcm-mining"
+repository-code: "https://github.com/ourHua/insomnia-tcm-mining"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.20267587"
     description: "Permanent Zenodo archive for v1.3.1"
-abstract: >-
   An end-to-end, single-command reproducible pipeline of eleven Python
   scripts, a Makefile and a continuous-integration workflow. Starting
   from two minimum-necessary CSV inputs containing only the fields
