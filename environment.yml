@@ -18,3 +18,4 @@ dependencies:
   - pip:
       - mlxtend>=0.23
       - python-louvain>=0.16
+      - adjustText>=1.0

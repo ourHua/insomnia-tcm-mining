@@ -20,7 +20,9 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
+from adjustText import adjust_text
 from mlxtend.frequent_patterns import apriori, association_rules
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -85,27 +87,58 @@ def main() -> None:
                       "Support (%)", "Confidence (%)", "Lift"]
     table3.to_csv(TBL_DIR / "table3_apriori_binary_rules.csv", index=False)
 
-    # Figure 3 — bubble: support vs confidence, size & color = lift
-    fig, ax = plt.subplots(figsize=(9.5, 6.2), dpi=160)
+    # Figure 3 — bubble: support vs confidence, size & colour = lift.
+    # Strong rules (Lift >= LABEL_LIFT) are labelled. Association rules are
+    # directional, so each herb pair contributes two points that share the
+    # same support and a near-identical confidence; the previous fixed text
+    # offset stacked those labels directly on top of one another. We now place
+    # the labels with adjustText, which repels them apart and draws a thin
+    # leader line back to each bubble, so no two labels overlap. The
+    # np.random.seed call makes adjustText's overlap-tie-breaking jitter
+    # reproducible, consistent with the seed = 42 convention used elsewhere in
+    # the pipeline (the rendered figure is identical on every run).
+    LABEL_LIFT = 1.40
+    fig, ax = plt.subplots(figsize=(11.0, 7.2), dpi=160)
     sc = ax.scatter(
         binary["support_pct"], binary["confidence_pct"],
         s=(binary["lift"] ** 4) * 8,
         c=binary["lift"], cmap="viridis",
-        edgecolor="black", linewidth=0.4, alpha=0.85,
+        edgecolor="black", linewidth=0.4, alpha=0.85, zorder=3,
     )
     cb = plt.colorbar(sc, ax=ax)
     cb.set_label("Lift", fontsize=11)
+
+    labels = []
     for _, r in binary.iterrows():
-        if r["lift"] >= 1.40:
-            ax.annotate(
-                f"{pinyin(r['LHS'])} → {pinyin(r['RHS'])}\nLift={r['lift']:.2f}",
-                (r["support_pct"], r["confidence_pct"]),
-                xytext=(6, 6), textcoords="offset points", fontsize=8,
-            )
+        if r["lift"] >= LABEL_LIFT:
+            labels.append(ax.text(
+                r["support_pct"], r["confidence_pct"],
+                f"{pinyin(r['LHS'])} → {pinyin(r['RHS'])}\nLift = {r['lift']:.2f}",
+                fontsize=8, ha="center", va="center", zorder=5,
+                bbox=dict(boxstyle="round,pad=0.28", fc="white",
+                          ec="0.55", lw=0.5, alpha=0.88),
+            ))
+
+    # Vertical headroom so no label is clipped against the frame.
+    ymin, ymax = ax.get_ylim()
+    ax.set_ylim(ymin - 1.5, ymax + 2.5)
+
+    np.random.seed(42)
+    adjust_text(
+        labels, ax=ax,
+        force_text=(0.5, 0.8),
+        force_static=(0.3, 0.5),
+        force_explode=(0.3, 0.6),
+        expand=(1.25, 1.6),
+        min_arrow_len=4,
+        arrowprops=dict(arrowstyle="-", color="0.45", lw=0.7,
+                        shrinkA=2, shrinkB=3),
+    )
+
     ax.set_xlabel("Support (%)", fontsize=11)
     ax.set_ylabel("Confidence (%)", fontsize=11)
     ax.set_title("Figure 3. Apriori binary association rules in the support–confidence–lift space", fontsize=12)
-    ax.grid(alpha=0.3)
+    ax.grid(alpha=0.3, zorder=0)
     plt.tight_layout()
     plt.savefig(FIG_DIR / "figure3_apriori_bubble.png", dpi=300, bbox_inches="tight")
     plt.savefig(FIG_DIR / "figure3_apriori_bubble.pdf", bbox_inches="tight")

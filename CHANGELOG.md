@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+- **Figure 3 (`figure3_apriori_bubble`)** — strong-rule labels
+  (Lift ≥ 1.40) no longer overlap. Association rules are directional,
+  so each herb pair contributes two points at the *same* support with a
+  near-identical confidence; the previous fixed `(+6, +6)` text offset
+  stacked their labels directly on top of one another (e.g.
+  *Shou Wu Teng → He Huan Pi* over *He Huan Pi → Shou Wu Teng*, and the
+  *Mu Li ↔ Long Gu* pair). Labels are now placed with `adjustText`,
+  which repels them apart and draws a thin leader line back to each
+  bubble, so no two labels collide.
+
+### Added
+- `adjustText>=1.0,<2.0` dependency (added to both `requirements.txt`
+  and `environment.yml`) for collision-free figure labelling.
+
+### Changed
+- Figure 3 canvas widened to 11.0 × 7.2 in with extra vertical
+  headroom so no label is clipped at the frame. Label placement is
+  seeded with `np.random.seed(42)` — consistent with the pipeline's
+  existing seed = 42 convention — so the figure renders identically on
+  every run.
+
+### Unchanged
+- All 16 / 16 headline-number assertions still PASS. No numerical
+  result, table, or other figure is affected; only the rendering of
+  Figure 3 changed.
+
 ## [1.3.0] - 2026-05-17
 
 ### Removed
